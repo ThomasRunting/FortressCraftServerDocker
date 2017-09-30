@@ -31,5 +31,8 @@ WORKDIR /opt/steamcmd
 
 RUN  /opt/steamcmd/steamcmd.sh +login anonymous +force_install_dir /opt/steamapps/FortressCraft +app_update 443600 -beta linux_server_headless validate +quit
 
+#VOLUME [ "/users/steam/.config/unity3d/ProjectorGames/" ]
+
 # Execution vector
 #ENTRYPOINT ["/opt/steamcmd/steamcmd.sh +login anonymous"]
+ENTRYPOINT [ "/opt/steamcmd/FortressCraft/FC_Linux_Universal.x86_64" ]
