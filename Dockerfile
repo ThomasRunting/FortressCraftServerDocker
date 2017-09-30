@@ -20,16 +20,16 @@ RUN apt-get update && \
 RUN mkdir -p /opt/steamcmd &&\
     cd /opt/steamcmd &&\
     curl -s http://media.steampowered.com/installer/steamcmd_linux.tar.gz | tar -vxz &&\
-    chown -R steam /opt/steamcmd
+    chown -R steam /opt/steamcmd &&\
+    mkdir -p /opt/steamapps/FortressCraft &&\
+    chown -R steam /opt/steamapps &&\
 
 
 # SteamCMD should not be used as root, here we set up user and variables
 USER steam
 WORKDIR /opt/steamcmd
 
-RUN mkdir -p /opt/steamapps/FortressCraft &&\
-    chown -R steam /opt/steamapps &&\
-    /opt/steamcmd/steamcmd.sh +login anonymous +force_install_dir /opt/steamapps/FortressCraft +app_update 443600 -beta linux_server_headless validate +quit
+RUN  /opt/steamcmd/steamcmd.sh +login anonymous +force_install_dir /opt/steamapps/FortressCraft +app_update 443600 -beta linux_server_headless validate +quit
 
 # Execution vector
 #ENTRYPOINT ["/opt/steamcmd/steamcmd.sh +login anonymous"]
