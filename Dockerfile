@@ -22,7 +22,7 @@ RUN mkdir -p /opt/steamcmd &&\
     curl -s http://media.steampowered.com/installer/steamcmd_linux.tar.gz | tar -vxz &&\
     chown -R steam /opt/steamcmd &&\
     mkdir -p /opt/steamapps/FortressCraft &&\
-    chown -R steam /opt/steamapps &&\
+    chown -R steam /opt/steamapps
 
 
 # SteamCMD should not be used as root, here we set up user and variables
