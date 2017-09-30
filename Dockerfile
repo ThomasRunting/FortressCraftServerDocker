@@ -27,7 +27,7 @@ RUN mkdir -p /opt/steamcmd &&\
 USER steam
 WORKDIR /opt/steamcmd
 
-RUN ./opt/steamcmd/steamcmd.sh +login anonymous +force_install_dir /steamapps/FortressCraft +app_update 329710 validate +quit
+RUN /opt/steamcmd/steamcmd.sh +login anonymous +force_install_dir /steamapps/FortressCraft +app_update 329710 validate +quit
 
 # Execution vector
 #ENTRYPOINT ["/opt/steamcmd/steamcmd.sh +login anonymous"]
