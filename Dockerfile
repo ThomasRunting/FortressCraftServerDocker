@@ -27,7 +27,9 @@ RUN mkdir -p /opt/steamcmd &&\
 USER steam
 WORKDIR /opt/steamcmd
 
-RUN /opt/steamcmd/steamcmd.sh +login anonymous +force_install_dir /steamapps/FortressCraft +app_update 443600 -beta linux_server_headless validate +quit
+RUN mkdir /steamapps/FortressCraft
+    chown -R /steamapps
+    /opt/steamcmd/steamcmd.sh +login anonymous +force_install_dir /steamapps/FortressCraft +app_update 443600 -beta linux_server_headless validate +quit
 
 # Execution vector
 #ENTRYPOINT ["/opt/steamcmd/steamcmd.sh +login anonymous"]
